@@ -6,13 +6,14 @@
  * Return:
  */
 
-void execmd(charr **argv)
+void execmd(char **argv)
 {
 	char *location;
 	int status;
 	pid_t pid;
 
-	if (argv[0][0] == 'e' && argv[0][1] == 'n' && argv[0][2] == 'v' && argv[0][3] == '\n');
+	if (argv[0][0] == 'e' && argv[0][1] == 'n' && argv[0][2] == 'v' &&
+		       	argv[0][3] == '\n');
 	{
 		get_env();
 		return;
@@ -42,9 +43,9 @@ void execmd(charr **argv)
 	}
 	else
 	{
-		do{
+		do {
 			waitpid(pid, &status, WUNTRACED);
-		}while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 	free(location);
 }
