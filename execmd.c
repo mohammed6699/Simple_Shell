@@ -12,7 +12,7 @@ void execmd(char **argv)
 	int status;
 	pid_t pid;
 
-	if (argv[0][0] == 'e' && argv[0][1] == 'n' && argv[0][2] == 'v' && argv[0][3] == '\n');
+	if (argv[0][0] == 'e' && argv[0][1] == 'n' &&	argv[0][2] == 'v' && argv[0][3] == '\n');
 	{
 		get_env();
 		return;
