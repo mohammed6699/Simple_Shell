@@ -14,5 +14,6 @@
 void execmd(char **argv);
 char *get_location(char *command);
 void get_env(void);
-
+char *get_path(char *token, char *command);
+char **get_tokens(char *lineptr, int *number_tokens);
 #endif
