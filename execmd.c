@@ -11,6 +11,7 @@ void execmd(char **argv)
 	char *location;
 	int status;
 	pid_t pid;
+	extern char **environ;
 
 	if (argv[0][0] == 'e' && argv[0][1] == 'n' &&	argv[0][2] == 'v'
 	&& argv[0][3] == '\n')
@@ -18,7 +19,6 @@ void execmd(char **argv)
 		get_env();
 		return;
 	}
-	pid = fork();
 	/*execute the location of the env*/
 	location = get_location(argv[0]);
 	/*check the success of get_location*/
@@ -31,7 +31,7 @@ void execmd(char **argv)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execve(location, argv, NULL) < 0)
+		if (execve(location, argv, environ) < 0)
 		{
 			perror("execve");
 			exit(1);
