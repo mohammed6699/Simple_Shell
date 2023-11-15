@@ -4,59 +4,26 @@
  * get_tokens - function that print line to number of tokens
  * @lineptr: pointer to the command line
  * @number_tokens: number of tokens enter by the user
- * Return: argv
+ * Return: allocate_memory_for_tokens
  */
 
 char **get_tokens(char *lineptr, int *number_tokens)
 {
 	char *token;
-	int i;
-	char **argv;
 	char *line_copy = strdup(lineptr);
-	const char *limit = "\n";
+	const char limit = "\n";
 
 	if (line_copy == NULL)
 	{
 		perror("strdup");
 		return (NULL);
 	}
-	/*split the token*/
 	token = strtok(line_copy, limit);
-	/*cal. number of tokens*/
 	while (token != NULL)
 	{
 		(*number_tokens)++;
 		token = strtok(NULL, limit);
 	}
 	(*number_tokens)++;
-	/*allocate space to hold the array*/
-	argv = malloc(sizeof(char *) * (*number_tokens));
-	if (argv == NULL)
-	{
-		perror("malloc");
-		free(line_copy);
-		return (NULL);
-	}
-	/*store exach token in an array*/
-	token = strtok(line_copy, limit);
-	for (i = 0; token != NULL; i++)
-	{
-		argv[i] = malloc(sizeof(char) * (strlen(token) + 1));
-		if (argv[i] == NULL)
-		{
-			perror("malloc");
-			while (i > 0)
-			{
-				free(argv[--i]);
-			}
-			free(argv);
-			free(line_copy);
-			return (NULL);
-	}
-		strcpy(argv[i], token);
-		token = strtok(NULL, limit);
-	}
-	argv[i] = NULL;
-	free(line_copy);
-	return (argv);
+	return allocate_memory_for_tokens(line_copy, number_tokens, limit);
 }
