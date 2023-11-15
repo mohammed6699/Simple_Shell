@@ -1,6 +1,6 @@
 #include "main.h"
 
-/*
+/**
  * get_tokens - function that print line to number of tokens
  * @lineptr: pointer to the command line
  * @number_tokens: number of tokens enter by the user

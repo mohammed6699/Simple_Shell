@@ -25,7 +25,7 @@ void execmd(char **argv)
 	if (location == NULL)
 	{
 		printf("command not found...");
-		return (-1);
+		return;
 	}
 	/*create new process*/
 	pid = fork();

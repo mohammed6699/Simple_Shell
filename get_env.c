@@ -8,7 +8,7 @@
 void get_env(void)
 {
 	int i;
-	char *env_variables[] = {"USER", "LANGUAG", "SESSION"
+	char *env_variables[] = {"USER", "LANGUAG", "SESSION",
 		"COMPIZ_CONFIG_PROFILE", "SHLVL", "HOME", "C_IS",
 			"DESKTOP_SESSION", "LOGNAME", "TERM", "PATH", "DISPLAY"};
 

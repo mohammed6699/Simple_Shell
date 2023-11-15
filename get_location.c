@@ -22,7 +22,7 @@ char *get_location(char *command)
 		while (token != NULL)
 		{
 			path_file = get_path(token, command);
-			if (stat(path_file, buffer) == 0)
+			if (stat(path_file, &buffer) == 0)
 			{
 				free(path_copy);
 				return (path_file);
