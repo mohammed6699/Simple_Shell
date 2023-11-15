@@ -14,12 +14,9 @@ int main(int argc, char **argv)
 	size_t n = 0;
 	ssize_t char_read;
 	int number_tokens = 0;
-	int i;
 
-	if (argc < 1)
-	{
-		return (-1);
-	}
+	/*void variables*/
+	(void)argc;
 
 	while (1)
 	{
@@ -38,12 +35,7 @@ int main(int argc, char **argv)
 			return (0);
 		}
 		execmd(argv);
-		for (i = 0; i < number_tokens; i++)
-		{
-			free(argv);
-		}
 	}
-	free(argv);
 	free(lineptr);
 	return (0);
 }

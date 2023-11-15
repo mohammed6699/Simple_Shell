@@ -18,14 +18,13 @@ void execmd(char **argv)
 		get_env();
 		return;
 	}
-	pid = fork();
 	/*execute the location of the env*/
 	location = get_location(argv[0]);
 	/*check the success of get_location*/
 	if (location == NULL)
 	{
 		printf("command not found...");
-		return (-1);
+		return;
 	}
 	/*create new process*/
 	pid = fork();
