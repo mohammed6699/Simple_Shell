@@ -15,6 +15,11 @@ char **get_tokens(char *lineptr, int *number_tokens)
 	char *line_copy = strdup(lineptr);
 	const char *limit = "\n";
 
+	if (line_copy == NULL)
+	{
+		perror("strdup");
+		return (NULL);
+	}
 	/*split the token*/
 	token = strtok(line_copy, limit);
 	/*cal. number of tokens*/
@@ -26,11 +31,28 @@ char **get_tokens(char *lineptr, int *number_tokens)
 	(*number_tokens)++;
 	/*allocate space to hold the array*/
 	argv = malloc(sizeof(char *) * (*number_tokens));
+	if (argv == NULL)
+	{
+		perror("malloc");
+		free(line_copy);
+		return (NULL);
+	}
 	/*store exach token in an array*/
 	token = strtok(line_copy, limit);
 	for (i = 0; token != NULL; i++)
 	{
-		argv[i] = malloc(sizeof(char) * strlen(token));
+		argv[i] = malloc(sizeof(char) * (strlen(token) + 1));
+		if (argv[i] == NULL)
+		{
+			perror("malloc");
+			while (i > 0)
+			{
+				free(argv[--i]);
+			}
+			free(argv);
+			free(line_copy);
+			return (NULL);
+	}
 		strcpy(argv[i], token);
 		token = strtok(NULL, limit);
 	}

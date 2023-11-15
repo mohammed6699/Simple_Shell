@@ -13,8 +13,7 @@ void execmd(char **argv)
 	pid_t pid;
 	extern char **environ;
 
-	if (argv[0][0] == 'e' && argv[0][1] == 'n' &&	argv[0][2] == 'v'
-	&& argv[0][3] == '\n')
+	if (argv[0][0] == 'e' && argv[0][1] == 'n' &&	argv[0][2] == 'v')
 	{
 		get_env();
 		return;
@@ -40,6 +39,7 @@ void execmd(char **argv)
 	else if (pid == -1)
 	{
 		perror("fork");
+		exit(1);
 	}
 	else
 	{

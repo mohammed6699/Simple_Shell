@@ -14,6 +14,11 @@ char *get_path(char *token, char *command)
 	int command_length = strlen(command);
 	char *path_file = malloc(command_length + dir_length + 2);
 
+	if (path_file == NULL)
+	{
+		perror("malloc");
+		return (NULL);
+	}
 	strcpy(path_file, token);
 	strcat(path_file, "/");
 	strcat(path_file, command);
@@ -42,6 +47,10 @@ char *get_location(char *command)
 		while (token != NULL)
 		{
 			path_file = get_path(token, command);
+			if (path_file == NULL)
+			{
+				return (NULL);
+			}
 			if (stat(path_file, &buffer) == 0)
 			{
 				free(path_copy);
