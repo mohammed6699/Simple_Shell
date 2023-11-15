@@ -25,5 +25,5 @@ char **get_tokens(char *lineptr, int *number_tokens)
 		token = strtok(NULL, limit);
 	}
 	(*number_tokens)++;
-	return allocate_memory_for_tokens(line_copy, number_tokens, limit);
+	return (allocate_memory_for_tokens(line_copy, number_tokens, limit));
 }

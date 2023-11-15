@@ -8,7 +8,8 @@
  *
  * Return: argv
  */
-char **allocate_memory_for_tokens(char *line_copy, int *number_tokens, const char *limit)
+char **allocate_memory_for_tokens(char *line_copy,
+		int *number_tokens, const char *limit)
 {
 	char *token;
 	int i;

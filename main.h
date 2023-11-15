@@ -20,5 +20,6 @@ char *get_location(char *command);
 int get_env(void);
 char *get_path(char *token, char *command);
 char **get_tokens(char *lineptr, int *number_tokens);
-char **allocate_memory_for_tokens(char *line_copy, int *number_tokens, const char *limit);
+char **allocate_memory_for_tokens(char *line_copy,
+		int *number_tokens, const char *limit);
 #endif
