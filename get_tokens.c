@@ -11,7 +11,7 @@ char **get_tokens(char *lineptr, int *number_tokens)
 {
 	char *token;
 	char *line_copy = strdup(lineptr);
-	const char limit = "\n";
+	const char *limit = "\n";
 
 	if (line_copy == NULL)
 	{

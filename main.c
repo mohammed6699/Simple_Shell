@@ -24,7 +24,6 @@ int main(int argc, char **argv)
 		char_read = getline(&lineptr, &n, stdin);
 		if (char_read == -1)
 		{
-			perror("char_read");
 			return (-1);
 		}
 		argv = get_tokens(lineptr, &number_tokens);
