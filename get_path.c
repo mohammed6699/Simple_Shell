@@ -1,9 +1,9 @@
 #include "main.h"
 
-/*
+/**
  * get_path - function for all definations of all variables in the get_path
- * @token - token from the user
- * @command - command enter by the user
+ * @token: token from the user
+ * @command: command enter by the user
  *
  * Return: path_file
  */
