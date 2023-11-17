@@ -4,6 +4,7 @@
  * main - Main function
  * @argc: argument count check number of argument enter by the user
  * @argv: argument which take the token enter by the user
+ *
  * Return: (0) success, (1) fail
  */
 
@@ -40,8 +41,10 @@ int main(int argc, char **argv)
 			{
 				free(argv[i]);
 			}
+			printf("$");
 			return (0);
 		}
+
 		execmd(argv);
 		free(argv);
 	}
