@@ -11,7 +11,7 @@ void execmd(char **argv)
 	char *location;
 	int status;
 	pid_t pid;
-	extern char **environ;
+	char *environ[] = {"PATH=/usr/bin:/bin", "TERM=console", NULL};
 
 	if (argv[0][0] == 'e' && argv[0][1] == 'n' &&	argv[0][2] == 'v')
 	{
